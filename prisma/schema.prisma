@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Book {
+  id         String @id @default(uuid())
+  title      String
+  descrition String
+  bar_code   String @unique
+
+  @@map("books") // o map é para trocar o nome do model e na tabela aparecer o nome que eu dei aqui e não o nome do Model
+}
